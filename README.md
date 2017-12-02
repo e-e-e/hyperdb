@@ -150,10 +150,11 @@ time.
 that occured between `checkout` and `head`. When multiple feeds conflict for the
 value of a key at a point in time, `value` will have multiple entries.
 
-#### `var stream = db.createHistoryStream()
+#### `var stream = db.createHistoryStream([start])
 
-Returns a readable stream of node objects covering all historic values since the
-beginning of time.
+Returns a readable stream of node objects covering all historic values since
+either the [version](#dbversioncallback) `start`. If not specified, history is
+traversed from the beginning of time.
 
 Nodes are emitted in topographic order, meaning if value `v2` was aware of value
 `v1` at its insertion time, `v1` must be emitted before `v2`.
