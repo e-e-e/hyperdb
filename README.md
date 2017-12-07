@@ -8,10 +8,12 @@ npm install hyperdb
 
 ## Note
 
-Latest release is the 1.0.0-rc1
+The latest release is 1.0.0-rc1.
 
 The storage format might change before a stable 1.0.0 release
-but the api semantics most likely wont
+but the API semantics most likely won't.
+
+Read about hyperdb's [architecture](ARCHITECTURE.md).
 
 ## Usage
 
