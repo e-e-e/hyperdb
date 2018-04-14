@@ -16,6 +16,7 @@ var alru = require('array-lru')
 var inherits = require('inherits')
 var hash = require('./lib/hash')
 var iterator = require('./lib/iterator')
+var latest = require('./lib/iterator-latest')
 var differ = require('./lib/differ')
 var history = require('./lib/history')
 var get = require('./lib/get')
@@ -517,6 +518,7 @@ HyperDB.prototype.diff = function (other, prefix, opts) {
 
 HyperDB.prototype.iterator = function (prefix, opts) {
   if (isOptions(prefix)) return this.iterator('', prefix)
+  if (opts.latest) return latest(this, normalizeKey(prefix || ''))
   return iterator(this, normalizeKey(prefix || ''), opts)
 }
 
