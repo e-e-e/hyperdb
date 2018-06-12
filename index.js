@@ -518,7 +518,7 @@ HyperDB.prototype.diff = function (other, prefix, opts) {
 
 HyperDB.prototype.iterator = function (prefix, opts) {
   if (isOptions(prefix)) return this.iterator('', prefix)
-  if (opts.latest) return latest(this, normalizeKey(prefix || ''))
+  if (opts && opts.latest) return latest(this, normalizeKey(prefix || ''))
   return iterator(this, normalizeKey(prefix || ''), opts)
 }
 
